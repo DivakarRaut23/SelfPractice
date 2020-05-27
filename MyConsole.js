@@ -18,7 +18,7 @@ function askQuestion(question) {
 async function Program() {
     // Welcome message
     console.log();
-    console.log("This is Divakar's Quick Handy Tool !");
+    console.log("This is Divakar's Service NSW Help Console !");
     console.log("=============X==============X==================");
     while (true) {
         // List options
@@ -198,7 +198,7 @@ async function Program() {
         console.log();
     }
     // Goodbye message
-    console.log("Thank you for using Divakar's Quick Handy Tool !");
+    console.log("Thank you for using Divakar's Service NSW Handy Tool !");
 }
 
 
