@@ -18,14 +18,21 @@ function askQuestion(question) {
 }
 
 async function Program() {
-    let input = await askQuestion("Which city do you want the current Exchange rate for : ")
-    let amountString = await askQuestion("How much money do you want to exchange ? : ")
-    let amount = parseFloat(amountString);
-   
     let web = await axios.get(`https://api.exchangeratesapi.io/latest?base=AUD`);
+    let dataWeb = web.data.rates ;
+    console.table(dataWeb);
+   
+    
+ 
+    // let input = await askQuestion("Which city do you want the current Exchange rate for : ")
+    // let amountString = await askQuestion("How much money do you want to exchange ? : ")
+    // let amount = parseFloat(amountString);
+
+    
+    
     
 
-  let dataWeb = web.data.rates ;
+  
 
 
 for(key in dataWeb){
@@ -38,8 +45,8 @@ for(key in dataWeb){
 
     }
 
-let exchange = amount * myrate;
-console.log(exchange);
+// let exchange = amount * myrate;
+// console.log(`${amount} AUD is equivalent to ${exchange} ${input}`);
 
 }
 
