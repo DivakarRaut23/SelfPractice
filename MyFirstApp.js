@@ -85,12 +85,12 @@ let authors = [
 
 // Q3 - Create a function called getAuthor which takes an id argument and returns the author with the matching id.
 
-// function getAuthor(id){
-//     function getAuthorById(author){
-//         return author.id == id;
-//     }
-//     return authors.find(getAuthorById);
-// }
+function getAuthor(id){
+    function getAuthorById(author){
+        return author.id == id;
+    }
+    return authors.find(getAuthorById);
+}
 
 // let myAuthor = getAuthor("7e7354b8-59e8-4b6a-916b-70882eab6fb6");
 
@@ -118,13 +118,34 @@ let authors = [
 // Q5 - Create a function called searchBooks which takes a string which is a search term as an argument.
 //  The function should return all books where the title or author name contains the given string.
 
-function searchBooks(searchString){
+function searchBooks(searchTerm) {
+    function termAppearsInBooksOrAuthor(book) {
+        let lowerSearchTerm = searchTerm.toLowerCase();
 
-    books.filter(searchString => {
-        if ()
-    })
+        let author = getAuthor(book.authorId);
+        return book.title.toLowerCase().includes(lowerSearchTerm) ||
+            author.firstName.toLowerCase().includes(lowerSearchTerm) ||
+            author.lastName.toLowerCase().includes(lowerSearchTerm);
+
+    }
+
+    return books.filter(termAppearsInBooksOrAuthor);
 }
 
-let searchedArray = searchBooks("Harry");
+function sortBooks(sortField) {
+    function sortByField(book1, book2) {
+        if (book1[sortField] > book2[sortField]) {
+            return 1;
+        } else if (book1[sortField] < book2[sortField]) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
 
-console.log(searchedArray);
+    return books
+        .sort(sortByField)
+        .map(book => book.title);
+}
+
+console.log(searchBooks("urn"));
